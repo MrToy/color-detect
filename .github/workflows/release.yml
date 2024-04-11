@@ -22,9 +22,9 @@ jobs:
         with:
           workspaces: './src-tauri -> target'
       - name: Sync node version and setup cache
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: 'latest'
           cache: 'pnpm'
       - name: Install frontend dependencies
         run: pnpm install 

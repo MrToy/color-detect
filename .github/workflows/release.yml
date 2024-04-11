@@ -31,7 +31,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-          cache: gradle
       - uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:

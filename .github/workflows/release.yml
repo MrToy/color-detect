@@ -29,6 +29,7 @@ jobs:
           java-version: '21'
           cache: gradle
       - uses: nttld/setup-ndk@v1
+        id: setup-ndk
         with:
           ndk-version: r25c
 
@@ -44,6 +45,8 @@ jobs:
 
       - name: Build android
         run: pnpm tauri android build 
+        env:
+          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
       - name: Upload
         uses: actions/upload-artifact@v4
         with:

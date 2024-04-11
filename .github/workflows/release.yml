@@ -21,11 +21,12 @@ jobs:
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri -> target'
-      - name: Sync node version and setup cache
+      - name: Install node
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
-          cache: 'pnpm'
+      - name: Install pnpm
+        run: npm i -g pnpm
       - name: Install frontend dependencies
         run: pnpm install 
       - name: Build android
